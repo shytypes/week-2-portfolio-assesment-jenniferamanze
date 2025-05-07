@@ -3,6 +3,10 @@
 Welcome back, student! 👋
 This repository contains everything you need to complete your **week 2 follow-up portfolio assignment**.
 
+---
+
+[![Auto Update](https://img.shields.io/badge/Auto--Update-GitHub%20Actions-blue?logo=github)](https://github.com/features/actions)
+
 ## 🗞️ Description
 
 Now that you have a portfolio site, your goal for this assignment is to add a **contact form** to your **existing** one-page **personal portfolio** created in your **Week 1 - portfolio assignment**. Ensure you migrate your Week 1 portfolio **source code** for the editable files specified below to this repository, add a contact form to it, and perform some DOM manipulation to display the form data on the webpage after the form is submitted.
@@ -94,3 +98,9 @@ Because the repository automatically adds important info **after your first push
 Pulling updates prevents **errors** and keeps everything **up-to-date**! 🚀
 
 **Watch this video explaining everything 👉:** TODO
+
+
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-green?logo=github)](https://shytypes.github.io/week-2-portfolio-assesment-jenniferamanze/)
+
+
+🚀 **View the project here**: [https://shytypes.github.io/week-2-portfolio-assesment-jenniferamanze/](https://shytypes.github.io/week-2-portfolio-assesment-jenniferamanze/)

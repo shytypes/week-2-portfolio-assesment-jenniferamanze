@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>My Portfolio</title>
     <!-- add fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,10 +18,116 @@
   </head>
   <body>
     <!-- Header Area -->
-    <header></header>
+    <header>
+      <div class="container">
+        <h1>JENNIFER AMANZE</h1>
+        <div class="hero">
+          <img
+            src="assets/images/Jennifer Amanze Image.jpeg"
+            alt="Jennifer's Image"
+            class="avatar"
+          />
+      <div class="contact-card">
+        <p>email: <a href="mailto:meetjenniferamanze@gmail.com">meetjenniferamanze@gmail.com</a></p>
+        <p>phone: +2348121423941</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/jenniferamanze/" target="_blank">linkedin.com/in/jenniferamanze</a></p>
+      </div>
+    </header>
     <!-- Main Area -->
     <main>
-      <h1>My Amazing Portfolio</h1>
+      <div class="summary">
+
+        <h3>Summary</h3>
+        <p>
+          An experienced Product Manager and Frontend Developer, passionate about driving product growth and user adoption.<br />
+          Proven ability to identify unmet needs in new markets, develop solutions, and iterate, ensuring products are delivered successfully.<br />
+          Seeking to leverage my skills and experience to expand the reach of products and value in new markets.
+        </p>
+      </div>
+      <hr/>
+      <div class="section">
+        <h3>Education</h3>
+        <p>BSc. Biochemistry</p>
+        <p><a href="https://lmu.edu.ng/">Landmark University</a> - Nigeria</p>
+        <ul>
+          <li>Graduated with distinction</li>
+        </ul>
+
+        <div class="section">
+          <h3>Experience</h3>
+          <p><a href="https://www.imotalent.app/">IMÒ</a> - United Kingdom (Remote) | Product Manager | 10/2023 - Present</p>
+          <ul>
+            <li>Collaborated with product, marketing, and design teams to ensure consistent product messaging across all touchpoints, contributing to a 27% increase in product adoption within the target market.</li>
+          </ul>
+          <p><a href="https://zuritechcourses.com/">Zuri Team</a> - United Kingdom (Remote) | Program Manager | 10/2020 - 12/2023</p>
+          <ul>
+            <li>Reduced course development timelines from 6 months to 2 months increasing the speed-to-market for new courses.</li>
+          </ul>
+        </div>
+
+        <div class="two-column">
+          <div class="column">
+            <h3>Tools</h3>
+            <hr />
+            <ul>
+              <li>Git and GitHub</li>
+              <li>Jira, ClickUp and Linear</li>
+              <li>Slack, Zoom</li>
+              <li>Google Workspace Tools etc.</li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3>Skills</h3>
+            <hr/>
+            <ul>
+              <li>Web Development</li>
+              <li>Product and Project Management</li>
+              <li>User and Market Research</li>
+              <li>Product Strategy</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contact-button-container">
+          <button id="openContactForm">Contact Me</button>
+        </div>
+
+        <div id="contactPopup" class="popup-overlay">
+          <div class="popup-content">
+            <span id="closePopup" class="close-button">&times;</span>
+            <h2>Contact Me</h2>
+            <form>
+              <div class="name-fields">
+                <input type="text" name="firstName" placeholder="First Name" required />
+                <input type="text" name="lastName" placeholder="Last Name" required />
+              </div>
+              <input type="email" name="email" placeholder="Email Address" required />
+              <textarea name="message" placeholder="Your Message" required></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
     </main>
+
+    <script>
+      const openBtn = document.getElementById("openContactForm");
+      const popup = document.getElementById("contactPopup");
+      const closeBtn = document.getElementById("closePopup");
+    
+      openBtn.addEventListener("click", () => {
+        popup.style.display = "flex";
+      });
+    
+      closeBtn.addEventListener("click", () => {
+        popup.style.display = "none";
+      });
+    
+      window.addEventListener("click", (e) => {
+        if (e.target === popup) {
+          popup.style.display = "none";
+        }
+      });
+    </script>
+
   </body>
 </html>

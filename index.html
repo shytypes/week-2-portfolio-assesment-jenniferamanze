@@ -91,11 +91,13 @@
         <div class="contact-button-container">
           <button id="openContactForm">Contact Me</button>
         </div>
+        <div id="contactDetailsOutput"></div>
 
         <div id="contactPopup" class="popup-overlay">
           <div class="popup-content">
             <span id="closePopup" class="close-button">&times;</span>
             <h2>Contact Me</h2>
+            
             <form>
               <div class="name-fields">
                 <input type="text" name="firstName" placeholder="First Name" required />
@@ -113,48 +115,51 @@
       const openBtn = document.getElementById("openContactForm");
       const popup = document.getElementById("contactPopup");
       const closeBtn = document.getElementById("closePopup");
-    
-      openBtn.addEventListener("click", () => {
-        popup.style.display = "flex";
-      });
-    
-      closeBtn.addEventListener("click", () => {
-        popup.style.display = "none";
-      });
-    
-      window.addEventListener("click", (e) => {
-        if (e.target === popup) {
-          popup.style.display = "none";
-        }
-      });
 
-       // Contact Form Submission (DOM Manipulation)
-  const contactForm = document.querySelector("#contactPopup form");
+openBtn.addEventListener("click", () => {
+  popup.style.display = "flex";
+});
 
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+closeBtn.addEventListener("click", () => {
+  popup.style.display = "none";
+});
 
-      const firstName = contactForm.querySelector("input[name='firstName']").value.trim();
-      const lastName = contactForm.querySelector("input[name='lastName']").value.trim();
-      const email = contactForm.querySelector("input[name='email']").value.trim();
-      const message = contactForm.querySelector("textarea[name='message']").value.trim();
-
-      if (firstName && lastName && email && message) {
-        console.log("Contact Form Submitted:");
-        console.log("First Name:", firstName);
-        console.log("Last Name:", lastName);
-        console.log("Email:", email);
-        console.log("Message:", message);
-
-        alert("Thank you for reaching out, " + firstName + "! We'll get back to you shortly.");
-        contactForm.reset();
-        popup.style.display = "none"; 
-      } else {
-        alert("Please fill out all fields.");
-      }
-    });
+window.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.style.display = "none";
   }
+});
+
+// Contact Form Submission + DOM Manipulation
+const contactForm = document.querySelector("#contactPopup form");
+const displayArea = document.getElementById("contactDetailsOutput"); 
+
+if (contactForm && displayArea) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const firstName = contactForm.querySelector("input[name='firstName']").value.trim();
+    const lastName = contactForm.querySelector("input[name='lastName']").value.trim();
+    const email = contactForm.querySelector("input[name='email']").value.trim();
+    const message = contactForm.querySelector("textarea[name='message']").value.trim();
+
+    if (firstName && lastName && email && message) {
+      const submittedHTML = `
+        <div class="submitted-contact">
+          <h3>Submitted Contact Information</h3>
+          <p><strong>First Name:</strong> ${firstName}</p>
+          <p><strong>Last Name:</strong> ${lastName}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong> ${message}</p>
+        </div>
+      `;
+
+      displayArea.innerHTML = submittedHTML;
+      contactForm.reset();
+      popup.style.display = "none";
+    }
+  });
+}
     </script>
 
   </body>

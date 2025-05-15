@@ -127,6 +127,34 @@
           popup.style.display = "none";
         }
       });
+
+       // Contact Form Submission (DOM Manipulation)
+  const contactForm = document.querySelector("#contactPopup form");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const firstName = contactForm.querySelector("input[name='firstName']").value.trim();
+      const lastName = contactForm.querySelector("input[name='lastName']").value.trim();
+      const email = contactForm.querySelector("input[name='email']").value.trim();
+      const message = contactForm.querySelector("textarea[name='message']").value.trim();
+
+      if (firstName && lastName && email && message) {
+        console.log("Contact Form Submitted:");
+        console.log("First Name:", firstName);
+        console.log("Last Name:", lastName);
+        console.log("Email:", email);
+        console.log("Message:", message);
+
+        alert("Thank you for reaching out, " + firstName + "! We'll get back to you shortly.");
+        contactForm.reset();
+        popup.style.display = "none"; 
+      } else {
+        alert("Please fill out all fields.");
+      }
+    });
+  }
     </script>
 
   </body>

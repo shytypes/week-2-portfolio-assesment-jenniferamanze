@@ -91,12 +91,13 @@
         <div class="contact-button-container">
           <button id="openContactForm">Contact Me</button>
         </div>
-        <div id="contactDetailsOutput"></div>
+        
 
         <div id="contactPopup" class="popup-overlay">
           <div class="popup-content">
             <span id="closePopup" class="close-button">&times;</span>
             <h2>Contact Me</h2>
+            
             
             <form>
               <div class="name-fields">
@@ -105,8 +106,9 @@
               </div>
               <input type="email" name="email" placeholder="Email Address" required />
               <textarea name="message" placeholder="Your Message" required></textarea>
-              <button type="submit">Send Message</button>
+              <button type="submit" class="submit">Send Message</button>
             </form>
+            <div id="contactDetailsOutput"></div>
           </div>
         </div>
     </main>
@@ -115,6 +117,8 @@
       const openBtn = document.getElementById("openContactForm");
       const popup = document.getElementById("contactPopup");
       const closeBtn = document.getElementById("closePopup");
+      const submit = document.querySelector(".submit");
+      const form = document.querySelector("form");
 
 openBtn.addEventListener("click", () => {
   popup.style.display = "flex";
@@ -134,9 +138,8 @@ window.addEventListener("click", (e) => {
 const contactForm = document.querySelector("#contactPopup form");
 const displayArea = document.getElementById("contactDetailsOutput"); 
 
-if (contactForm && displayArea) {
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+function handleFormSubmit(event) {
+    event.preventDefault();
 
     const firstName = contactForm.querySelector("input[name='firstName']").value.trim();
     const lastName = contactForm.querySelector("input[name='lastName']").value.trim();
@@ -156,10 +159,10 @@ if (contactForm && displayArea) {
 
       displayArea.innerHTML = submittedHTML;
       contactForm.reset();
-      popup.style.display = "none";
+      
     }
-  });
 }
+  form.addEventListener("submit", handleFormSubmit);
     </script>
 
   </body>
